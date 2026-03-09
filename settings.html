@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Settings – Safe Steps</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+.card{
+max-width:600px;
+}
+
+.setting-input{
+width:100%;
+padding:12px;
+margin-top:10px;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+.save-btn{
+margin-top:20px;
+padding:12px;
+width:100%;
+background:#0b3c5d;
+color:white;
+border:none;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
+}
+
+.section{
+margin-top:25px;
+text-align:left;
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="app-header">
+<h1>Settings</h1>
+<p>Manage your Safe Steps preferences</p>
+</header>
+
+<main class="card">
+
+<div class="section">
+<h3>Profile</h3>
+
+<input id="name" class="setting-input" placeholder="Name">
+
+<input id="phone" class="setting-input" placeholder="Phone">
+
+<input id="dob" type="date" class="setting-input">
+
+</div>
+
+
+<div class="section">
+<h3>Emergency Contact</h3>
+
+<input id="contactName" class="setting-input" placeholder="Contact Name">
+
+<input id="contactPhone" class="setting-input" placeholder="Contact Phone">
+
+</div>
+
+
+<div class="section">
+<h3>Voice Settings</h3>
+
+<select id="voiceSpeed" class="setting-input">
+<option value="0.8">Slow</option>
+<option value="1">Normal</option>
+<option value="1.2">Fast</option>
+</select>
+
+</div>
+
+
+<div class="section">
+<h3>Accessibility</h3>
+
+<label>
+<input type="checkbox" id="darkMode"> Dark Mode
+</label>
+
+</div>
+
+<button class="save-btn" onclick="saveSettings()">Save Settings</button>
+
+<button class="save-btn" onclick="history.back()">Back</button>
+
+</main>
+
+<script src="js/settings.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Navigation Aid – Safe Steps</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="css/style.css">
+
+<!-- INLINE STYLES (HTML ONLY) -->
+<style>
+  /* Make card wider like live page */
+  .card {
+    max-width: 700px;
+  }
+
+  /* Buttons */
+  .big-btn {
+    width: 100%;
+    padding: 18px;
+    margin-top: 16px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.15s ease;
+  }
+
+  .big-btn.primary {
+    background: linear-gradient(135deg, #0b3c5d, #1fa2a6);
+  }
+
+  .big-btn.secondary {
+    background: linear-gradient(135deg, #607d8b, #90a4ae);
+  }
+
+  .big-btn:active {
+    transform: scale(0.97);
+  }
+
+  /* Input */
+  .nav-input {
+    width: 100%;
+    padding: 18px;
+    margin-top: 18px;
+    font-size: 18px;
+    border-radius: 14px;
+    border: 2px solid #ddd;
+    outline: none;
+  }
+
+  .nav-input:focus {
+    border-color: #1fa2a6;
+  }
+
+  /* SOS */
+  .sos-btn {
+    width: 95px;0..
+    height: 95px;
+    font-size: 22px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ff5252, #c62828);
+  }
+</style>
+</head>
+
+<!-- 🔑 Auto start navigation when page loads -->
+<body onload="autoStartNavigation()">
+
+<header class="app-header">
+  <h1>Voice Navigation</h1>
+  <p>Tell your destination to start walking</p>
+</header>
+
+<main class="card">
+
+  <!-- VOICE NAVIGATION -->
+  <button class="big-btn primary" onclick="startNavigation()">
+    🎤 Say Destination
+  </button>
+
+  <!-- TEXT NAVIGATION -->
+  <input 
+    type="text"
+    id="textDestination"
+    class="nav-input"
+    placeholder="Type destination here..."
+  >
+
+  <button class="big-btn primary" onclick="startTextNavigation()">
+    📍 Start Navigation
+  </button>
+
+  <button class="big-btn secondary" onclick="history.back()">
+    ⬅ Back
+  </button>
+
+</main>
+
+<button class="sos-btn" onclick="sendSOS()">SOS</button>
+
+<script src="js/navigation.js"></script>
+<script src="js/sos.js"></script>
+
+</body>
+</html>

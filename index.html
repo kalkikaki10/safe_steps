@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Safe Steps – Assistive Navigation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<script>
+if(localStorage.getItem("loggedIn") !== "true"){
+window.location.href = "login.html";
+}
+</script>
+<header class="app-header">
+  <h1>Safe Steps</h1>
+  <p>Assistive walking & navigation system</p>
+</header>
+<button class="settings-btn" onclick="openSettings()">⚙ Settings</button>
+<button class="logout-btn" onclick="logout()">Logout</button>
+<main class="card">
+  <a href="live.html" class="feature-btn">
+    <span>Live Object Detection</span>
+    <small>Real-time environment awareness</small>
+  </a>
+  <a href="navigate.html" class="feature-btn">
+    <span>Navigation Aid</span>
+    <small>Voice-guided safe routes</small>
+  </a>
+  <a href="read.html" class="feature-btn">
+    <span>Document Reader</span>
+    <small>OCR with audio output</small>
+  </a>
+
+  <a href="chatbot.html" class="feature-btn">
+    <span>AI Assistant</span>
+    <small>Ask questions by voice</small>
+  </a>
+  <button class="voice-btn" onclick="startVoiceCommand()">
+    🎤 Voice Control
+  </button>
+</main>
+<button class="call-btn" onclick="makeEmergencyCall()">📞 Emergency Call</button>
+<button class="sos-btn" onclick="sendSOS()">SOS</button>
+<script src="js/emergencyCall.js"></script>
+<script>
+function logout(){
+localStorage.removeItem("loggedIn");
+window.location.href="login.html";
+}
+</script>
+<footer class="footer">
+  <p>© 2026 Safe Steps | Assistive Technology Project</p>
+</footer>
+<script src="js/settings.js"></script>
+<script src="js/voiceControl.js"></script>
+<script src="js/sos.js"></script>
+</body>
+</html>

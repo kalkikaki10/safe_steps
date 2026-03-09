@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Live Detection – Safe Steps</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="css/style.css">
+
+<!-- TensorFlow -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.15.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+
+<!-- INLINE STYLES (HTML ONLY) -->
+<style>
+  /* Make card wider */
+  .card {
+    max-width: 900px;
+  }
+
+  /* Video row layout */
+  .video-row {
+    display: flex;
+    gap: 20px;
+    margin: 25px 0;
+  }
+
+  .video-box {
+    flex: 1;
+  }
+
+  video, canvas {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    border-radius: 18px;
+    border: 2px solid #ddd;
+  }
+
+  /* Buttons */
+  .big-btn {
+    width: 100%;
+    padding: 18px;
+    margin-top: 16px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.15s ease;
+  }
+
+  .big-btn.primary {
+    background: linear-gradient(135deg, #0b3c5d, #1fa2a6);
+  }
+
+  .big-btn.secondary {
+    background: linear-gradient(135deg, #607d8b, #90a4ae);
+  }
+
+  .big-btn:active {
+    transform: scale(0.97);
+  }
+
+  /* SOS */
+  .sos-btn {
+    width: 95px;
+    height: 95px;
+    font-size: 22px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ff5252, #c62828);
+  }
+
+  /* Mobile fallback */
+  @media (max-width: 768px) {
+    .video-row {
+      flex-direction: column;
+    }
+
+    video, canvas {
+      height: 260px;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<header class="app-header">
+  <h1>Live Safety View</h1>
+  <p>AI vision for safe walking</p>
+</header>
+
+<main class="card">
+
+  <!-- SIDE BY SIDE LARGE CAMERA + CANVAS -->
+  <div class="video-row">
+    <div class="video-box">
+      <video id="video" autoplay muted playsinline></video>
+    </div>
+    <div class="video-box">
+      <canvas id="canvas"></canvas>
+    </div>
+  </div>
+  <button class="big-btn primary" onclick="describeScene()">
+    📸 Describe Scene
+  </button>
+
+  <button class="big-btn secondary" onclick="history.back()">
+    ⬅ Back
+  </button>
+
+</main>
+
+<button class="sos-btn" onclick="sendSOS()">SOS</button>
+
+<script src="js/live.js"></script>
+<script src="js/sos.js"></script>
+
+</body>
+</html>

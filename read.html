@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document Reader – Safe Steps</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="css/style.css">
+
+<!-- OCR -->
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+
+<!-- INLINE STYLES (HTML ONLY) -->
+<style>
+  /* Wider card */
+  .card {
+    max-width: 750px;
+  }
+
+  /* Buttons */
+  .big-btn {
+    width: 100%;
+    padding: 18px;
+    margin-top: 16px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.15s ease;
+  }
+
+  .big-btn.primary {
+    background: linear-gradient(135deg, #0b3c5d, #1fa2a6);
+  }
+
+  .big-btn.secondary {
+    background: linear-gradient(135deg, #607d8b, #90a4ae);
+  }
+
+  .big-btn.danger {
+    background: linear-gradient(135deg, #c62828, #ef5350);
+  }
+
+  .big-btn:active {
+    transform: scale(0.97);
+  }
+
+  /* Input & textarea */
+  .reader-input,
+  .reader-textarea {
+    width: 100%;
+    padding: 18px;
+    margin-top: 16px;
+    font-size: 18px;
+    border-radius: 14px;
+    border: 2px solid #ddd;
+  }
+
+  .reader-textarea {
+    height: 180px;
+    resize: none;
+  }
+
+  /* Camera */
+  video {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 2px solid #ddd;
+    margin-top: 18px;
+    display: none;
+  }
+
+  /* Stop reading floating button */
+  .stop-btn {
+    position: fixed;
+    bottom: 130px;
+    right: 20px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    background: radial-gradient(circle, #ff5252, #c62828);
+    box-shadow: 0 12px 30px rgba(198,40,40,0.6);
+  }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    video {
+      height: 220px;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<header class="app-header">
+  <h1>Document Reader</h1>
+  <p>Scan printed text and listen to it</p>
+</header>
+
+<main class="card">
+
+  <!-- Upload image -->
+  <input 
+    type="file" 
+    id="imageInput" 
+    accept="image/*"
+    class="reader-input"
+  >
+
+  <!-- Camera -->
+  <button class="big-btn primary" onclick="openCamera()">
+    📷 Open Camera
+  </button>
+
+  <video id="camera" autoplay playsinline></video>
+
+  <button 
+    id="captureBtn" 
+    class="big-btn primary" 
+    onclick="capturePhoto()" 
+    style="display:none;"
+  >
+    📸 Capture & Read
+  </button>
+
+  <!-- OCR Output -->
+  <textarea 
+    id="outputText" 
+    class="reader-textarea"
+    placeholder="Recognized text will appear here..."
+  ></textarea>
+
+  <button class="big-btn secondary" onclick="history.back()">
+    ⬅ Back
+  </button>
+
+</main>
+
+<!-- STOP READING -->
+<button class="stop-btn" onclick="stopReading()">🛑</button>
+
+<canvas id="snapshot" style="display:none;"></canvas>
+
+<script src="js/read.js"></script>
+<script src="js/sos.js"></script>
+
+</body>
+</html>
