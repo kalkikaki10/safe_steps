@@ -1,0 +1,172 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* BODY */
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: #f4f6f8;
+  color: #222;
+  text-align: center;
+  min-height: 100vh;
+}
+
+/* HEADER */
+.app-header {
+  background: #0b3c5d;
+  color: white;
+  padding: 30px 20px;
+}
+
+.app-header h1 {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.app-header p {
+  margin-top: 8px;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+/* MAIN CARD */
+.card {
+  background: white;
+  max-width: 480px;
+  margin: 30px auto;
+  padding: 30px 20px;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+/* FEATURE BUTTONS */
+.feature-btn {
+  display: block;
+  text-decoration: none;
+  background: #f9fafb;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 18px;
+  margin: 15px 0;
+  color: #0b3c5d;
+  text-align: left;
+  transition: 0.2s ease;
+}
+
+.feature-btn span {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.feature-btn small {
+  display: block;
+  margin-top: 6px;
+  font-size: 14px;
+  color: #555;
+}
+
+.feature-btn:hover {
+  background: #eef5fa;
+  border-color: #0b3c5d;
+}
+
+/* VOICE BUTTON */
+.voice-btn {
+  width: 100%;
+  padding: 16px;
+  margin-top: 25px;
+  font-size: 18px;
+  border-radius: 12px;
+  border: none;
+  background: #0b3c5d;
+  color: white;
+  cursor: pointer;
+}
+
+.voice-btn:active {
+  transform: scale(0.97);
+}
+.call-btn{
+position:fixed;
+bottom:120px;
+right:20px;
+width:120px;
+height:60px;
+border-radius:12px;
+background:#2ecc71;
+color:white;
+font-size:16px;
+border:none;
+cursor:pointer;
+box-shadow:0 6px 15px rgba(0,0,0,0.3);
+}
+
+.call-btn:hover{
+background:#27ae60;
+}
+
+/* SOS BUTTON */
+.sos-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #c62828;
+  color: white;
+  font-size: 22px;
+  border: none;
+  box-shadow: 0 8px 20px rgba(198,40,40,0.6);
+}
+/* SETTINGS BUTTON */
+
+.settings-btn{
+position:fixed;
+top:20px;
+left:20px;
+padding:10px 18px;
+background:#1fa2a6;
+color:white;
+border:none;
+border-radius:8px;
+font-size:14px;
+cursor:pointer;
+font-weight:600;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.settings-btn:hover{
+background:#178c8f;
+}
+/* LOGOUT BUTTON */
+
+.logout-btn{
+position:absolute;
+top:20px;
+right:20px;
+padding:10px 18px;
+background:#2ecc71;
+color:white;
+border:none;
+border-radius:8px;
+font-size:14px;
+cursor:pointer;
+font-weight:600;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.logout-btn:hover{
+background:#27ae60;
+}
+
+/* FOOTER */
+.footer {
+  margin-top: 30px;
+  padding: 15px;
+  font-size: 13px;
+  color: #666;
+}
